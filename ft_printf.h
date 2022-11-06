@@ -6,7 +6,7 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:01:42 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 19:57:33 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/06 20:05:35 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_print_hexa(unsigned int nbr, int lowupp);
 int		ft_print_nbr_uns(unsigned int n);
 int		ft_print_pointer(unsigned long long nbr);
 int		get_print(char c, va_list print);
-int		ifzero();
+int		ifzero(void);
 int		ft_numbers(long n);
 int		ft_numbers_uns(unsigned int n);
 

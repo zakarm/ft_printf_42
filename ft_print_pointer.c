@@ -6,13 +6,13 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:10:20 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 19:55:37 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/06 20:05:25 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ifzero()
+int	ifzero(void)
 {
 	int	len;
 
