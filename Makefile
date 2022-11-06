@@ -6,7 +6,7 @@
 #    By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 09:20:52 by zmrabet           #+#    #+#              #
-#    Updated: 2022/11/01 15:14:03 by zmrabet          ###   ########.fr        #
+#    Updated: 2022/11/06 18:52:33 by zmrabet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(AR) $@ $(OBJ)
 
-%.o : %.c libftprintf.h
+%.o : %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $<
 
 clean : 

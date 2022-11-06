@@ -6,13 +6,13 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:28:48 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/02 13:05:47 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/06 18:52:03 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static int	ft_numbers(long n)
+int	ft_numbers(long n)
 {
 	long	res;
 	int		i;
@@ -32,13 +32,13 @@ static int	ft_numbers(long n)
 	return (i);
 }
 
-static char	leeszero(long *nb)
+char	leeszero(long *nb)
 {
 	*nb *= -1;
 	return ('-');
 }
 
-static char	*ft_itoa_nbr(int n)
+char	*ft_itoa_nbr(int n)
 {
 	char	*p;
 	int		k;
@@ -67,12 +67,12 @@ static char	*ft_itoa_nbr(int n)
 	return (p);
 }
 
-int ft_print_nbr(int n)
+int	ft_print_nbr(int n)
 {
 	char	*s;
 
 	s = ft_itoa_nbr(n);
 	ft_print_str(s);
 	free(s);
-	return(ft_strlen(s));
+	return (ft_strlen(s));
 }

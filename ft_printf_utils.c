@@ -6,15 +6,15 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:25:21 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/02 13:05:58 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/06 18:52:12 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -22,10 +22,10 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char    *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char    *st;
-	char    data;
+	char	*st;
+	char	data;
 
 	st = (char *)s;
 	data = (char)c;

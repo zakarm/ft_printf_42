@@ -6,15 +6,17 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:20:48 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/02 14:44:00 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/06 19:56:54 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int get_print(char c, va_list print)
+int	get_print(char c, va_list print)
 {
-	int len = 0;
+	int	len;
+
+	len = 0;
 	if (c == 'c')
 		len += ft_print_char((char)va_arg(print, int));
 	else if (c == '%')
@@ -34,21 +36,20 @@ int get_print(char c, va_list print)
 	return (len);
 }
 
-
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	int len;
+	int		i;
+	int		len;
+	va_list	print;
 
 	len = 0;
 	i = 0;
-	va_list print;
 	va_start(print, str);
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			if (ft_strchr("cspdiuxX%",str[i + 1]))
+			if (ft_strchr("cspdiuxX%", str[i + 1]))
 			{
 				len += get_print(str[i + 1], print);
 				i++;
