@@ -6,7 +6,7 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:01:42 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 20:05:35 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/08 23:24:29 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,40 @@ includes : stdlib for malloc - unistd for write - stdarg for varidic functions
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdio.h>
 
 /*
 functions
 */
 
-int		ft_printf(const char *str, ...);
-int		ft_print_char(char c);
-int		ft_print_str(char *s);
+/*print nbr*/
+void	ft_putnbr(int n);
+int		ft_numbers(int n);
 int		ft_print_nbr(int n);
+
+/*print char*/
+int		ft_print_char(char c);
+
+/*print hexa*/
 int		ft_print_hexa(unsigned int nbr, int lowupp);
-int		ft_print_nbr_uns(unsigned int n);
+
+/*print pointer*/
 int		ft_print_pointer(unsigned long long nbr);
-int		get_print(char c, va_list print);
 int		ifzero(void);
-int		ft_numbers(long n);
-int		ft_numbers_uns(unsigned int n);
 
+/*print str*/
+int		ft_print_str(char *s);
+
+/*print utils*/
 size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
 
-char	*ft_strchr(const char *s, int c);
-char	*ft_strchr(const char *s, int c);
+/*print uns*/
+int		ft_numbers_uns(unsigned int n);
 char	*ft_itoa_nbr_uns(unsigned int n);
-char	*ft_itoa_nbr(int n);
-char	leeszero_uns(unsigned int *nb);
-char	leeszero(long *nb);
+int		ft_print_nbr_uns(unsigned int n);
+
+/*printf*/
+int		ft_printf(const char *str, ...);
+int		get_print(char c, va_list print);
+
 #endif 
