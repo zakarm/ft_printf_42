@@ -12,7 +12,6 @@
 
 #include "ft_printf.h"
 
-
 int	ft_numbers_uns(unsigned int n)
 {
 	unsigned int	res;
