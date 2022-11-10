@@ -6,7 +6,7 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:34:06 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 18:51:59 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/08 03:07:09 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,14 @@ int	ft_numbers_uns(unsigned int n)
 
 	res = n;
 	i = 0;
-	if (res <= 0)
-	{
-		res *= -1;
+	if (res == 0)
 		i++;
-	}
 	while (res > 0)
 	{
 		i++;
 		res /= 10;
 	}
 	return (i);
-}
-
-char	leeszero_uns(unsigned int *nb)
-{
-	*nb *= -1;
-	return ('-');
 }
 
 char	*ft_itoa_nbr_uns(unsigned int n)
@@ -50,10 +41,6 @@ char	*ft_itoa_nbr_uns(unsigned int n)
 	if (!p)
 		return (NULL);
 	p[k--] = '\0';
-	if (nb < 0)
-	{
-		p[0] = leeszero_uns(&nb);
-	}
 	if (nb < 9 || nb == 0)
 		p[k--] = nb + 48;
 	else
@@ -71,10 +58,11 @@ int	ft_print_nbr_uns(unsigned int n)
 {
 	char			*s;
 	unsigned int	data;
+	int				size;
 
 	data = (unsigned int)n;
 	s = ft_itoa_nbr_uns(data);
-	ft_print_str(s);
+	size = ft_print_str(s);
 	free(s);
-	return (ft_strlen(s));
+	return (size);
 }
