@@ -6,7 +6,7 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:20:48 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 19:56:54 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/09 21:07:34 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_print(char c, va_list print)
 
 	len = 0;
 	if (c == 'c')
-		len += ft_print_char((char)va_arg(print, int));
+		len += ft_print_char(va_arg(print, int));
 	else if (c == '%')
 		len += ft_print_char('%');
 	else if (c == 's')
@@ -30,7 +30,7 @@ int	get_print(char c, va_list print)
 	else if (c == 'x')
 		len += ft_print_hexa(va_arg(print, unsigned int), 32);
 	else if (c == 'X')
-		len += ft_print_hexa(va_arg(print, unsigned long long), 0);
+		len += ft_print_hexa(va_arg(print, unsigned int), 0);
 	else if (c == 'p')
 		len += ft_print_pointer(va_arg(print, unsigned long long));
 	return (len);
@@ -47,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	va_start(print, str);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1])
 		{
 			if (ft_strchr("cspdiuxX%", str[i + 1]))
 			{
@@ -55,10 +55,12 @@ int	ft_printf(const char *str, ...)
 				i++;
 			}
 		}
-		else
+		else if (str[i] != '%')
 			len += ft_print_char(str[i]);
 		i++;
 	}
 	va_end(print);
+	if (len < 0)
+		return (-1);
 	return (len);
 }
