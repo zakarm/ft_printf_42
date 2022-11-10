@@ -6,7 +6,7 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 13:14:28 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 18:51:52 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/08 23:26:41 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	ft_print_char(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	int	len;
+
+	len = 0;
+	len += write(1, &c, 1);
+	return (len);
 }
