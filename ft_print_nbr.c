@@ -6,13 +6,13 @@
 /*   By: zmrabet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:28:48 by zmrabet           #+#    #+#             */
-/*   Updated: 2022/11/06 18:52:03 by zmrabet          ###   ########.fr       */
+/*   Updated: 2022/11/08 02:18:21 by zmrabet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numbers(long n)
+int	ft_numbers(int n)
 {
 	long	res;
 	int		i;
@@ -32,47 +32,29 @@ int	ft_numbers(long n)
 	return (i);
 }
 
-char	leeszero(long *nb)
+void	ft_putnbr(int n)
 {
-	*nb *= -1;
-	return ('-');
-}
-
-char	*ft_itoa_nbr(int n)
-{
-	char	*p;
-	int		k;
-	long	nb;
-
-	nb = n;
-	k = ft_numbers(n);
-	p = (char *)malloc(sizeof(char) * (k + 1));
-	if (!p)
-		return (NULL);
-	p[k--] = '\0';
-	if (nb < 0)
+	if (n == -2147483648)
 	{
-		p[0] = leeszero(&nb);
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	if (nb < 9 || nb == 0)
-		p[k--] = nb + 48;
+	if (n < 0)
+	{
+		ft_print_char('-');
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 	else
-	{
-		while (nb > 0)
-		{
-			p[k--] = (nb % 10) + 48;
-			nb /= 10;
-		}
-	}
-	return (p);
+		ft_print_char(n + 48);
 }
 
 int	ft_print_nbr(int n)
 {
-	char	*s;
-
-	s = ft_itoa_nbr(n);
-	ft_print_str(s);
-	free(s);
-	return (ft_strlen(s));
+	ft_putnbr(n);
+	return (ft_numbers(n));
 }
